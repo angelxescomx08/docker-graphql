@@ -24,6 +24,10 @@ jobs:
           docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
           echo "Fin del login"
       - name: Build docker image
-        run: docker build -t angelx105/docker-graphql:1.0.0 .
+        run: |
+          docker build -t angelx105/docker-graphql:1.0.0 .
+          docker build -t angelx105/docker-graphql .
       - name: Push docker image
-        run: docker push angelx105/docker-graphql:1.0.0
+        run: |
+          docker push angelx105/docker-graphql:1.0.0
+          docker push angelx105/docker-graphql
