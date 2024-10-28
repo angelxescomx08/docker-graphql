@@ -23,3 +23,7 @@ jobs:
           echo "Iniciando login"
           docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
           echo "Fin del login"
+      - name: Build docker image
+        run: docker build -t angelx105/docker-graphql:1.0.0 .
+      - name: Push docker image
+        run: docker push angelx105/docker-graphql:1.0.0
